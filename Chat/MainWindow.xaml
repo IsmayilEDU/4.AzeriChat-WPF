@@ -1,0 +1,1256 @@
+﻿<Window x:Class="Chat.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Chat"
+        mc:Ignorable="d"
+        Title="AzeriChat"
+        Height="450"
+        Width="800"
+        MinHeight="450"
+        MinWidth="800"
+        WindowStartupLocation="CenterScreen"
+        >
+    <DockPanel 
+        LastChildFill="True"
+        Background="#FFABC7AB"
+        >
+
+        <!--#region Main menu-->
+        <Border 
+            DockPanel.Dock="Left"
+            Margin="5"
+            Width="70"
+            Background="#FF276118"
+            CornerRadius="20"
+            >
+
+            <!--#region Buttons of main menu -->
+            <DockPanel LastChildFill="True"
+                >
+
+                <!--#region Home-->
+                <Grid
+                    DockPanel.Dock="Top"
+                    Width="25"
+                    Height="25"
+                    Margin="10"
+                    >
+                    <Image Source="/Icons/MainMenu/home.png" />
+                    <Button Opacity="0" Cursor="Hand"></Button>
+                </Grid>
+                <!--#endregion-->
+                
+                <!--#region Messages-->
+                <Grid
+                    DockPanel.Dock="Top"
+                    Width="25"
+                    Height="25"
+                    Margin="10"
+                    >
+                    <Image Source="/Icons/MainMenu/chat.png" />
+                    <Button Opacity="0" Cursor="Hand"></Button>
+                </Grid>
+                <!--#endregion-->
+                
+                <!--#region Star-->
+                <Grid
+                    DockPanel.Dock="Top"
+                    Width="25"
+                    Height="25"
+                    Margin="10"
+                    >
+                    <Image Source="/Icons/MainMenu/star.png" />
+                    <Button Opacity="0" Cursor="Hand"></Button>
+                </Grid>
+                <!--#endregion-->
+                
+                <!--#region Statistics-->
+                <Grid
+                    DockPanel.Dock="Top"
+                    Width="25"
+                    Height="25"
+                    Margin="10"
+                    >
+                    <Image Source="/Icons/MainMenu/statistics.png" />
+                    <Button Opacity="0" Cursor="Hand"></Button>
+                </Grid>
+                <!--#endregion-->
+                
+                <!--#region Settings-->
+                <Grid
+                    DockPanel.Dock="Top"
+                    Width="25"
+                    Height="25"
+                    Margin="10"
+                    >
+                    <Image Source="/Icons/MainMenu/setting.png" />
+                    <Button Opacity="0" Cursor="Hand"></Button>
+                </Grid>
+                <!--#endregion-->
+
+                <!--#region Profil-->
+                <Grid
+                    VerticalAlignment="Bottom"
+                    Width="40"
+                    Height="40"
+                    Margin="10"
+                    >
+                    <Image Source="/Icons/Chats/profile-user.png" />
+                    <Button Opacity="0" Cursor="Hand"></Button>
+                </Grid>
+                <!--#endregion-->
+                
+                
+
+            </DockPanel>
+            <!--#endregion-->
+            
+        </Border>
+        <!--#endregion-->
+
+        <!--#region List of people-->
+        <DockPanel
+            LastChildFill="True"
+            DockPanel.Dock="Left"
+            Margin="5"
+            Width="200"
+            Background="Transparent"
+            >
+            
+            <!--#region Search-->
+            <Border
+                DockPanel.Dock="Top"
+                Margin="5"
+                CornerRadius="20"
+                Background="White"
+                BorderThickness="0.5"
+                BorderBrush="Black"
+                >
+
+                <TextBox 
+                    BorderThickness="0"
+                    Margin="10"
+                    Background="#00000000"
+                    >
+                    Search
+                </TextBox>
+
+            </Border>
+            <!--#endregion-->
+            
+            <!--#region People-->
+            <ScrollViewer 
+                VerticalScrollBarVisibility="Auto"
+                >
+                
+                <StackPanel>
+
+                    <!--#region Person-->
+                    <Border
+                        Margin="5"
+                        Height="60"
+                        CornerRadius="10" 
+                        Background="#FFE6E6E6" Cursor="Hand"
+                        >
+                        <DockPanel LastChildFill="True">
+                            
+                            <!--#region Profile picture-->
+                            <Image
+                                DockPanel.Dock="Left"
+                                Margin="7"
+                                Source="/Icons/Chats/profile-user.png"
+                                >
+                            </Image>
+                            <!--#endregion-->
+
+                            <Grid
+                                Margin="5"
+                                >
+
+                                <!--#region Rows and columns-->
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition Width="30"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <!--#endregion-->
+                                
+                                <!--#region Person's fullname-->
+                                <Label
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    FontSize="9"
+                                    FontWeight="Medium"
+                                    >
+                                    Ismayil Kerimzade
+                                </Label>
+                                <!--#endregion-->
+                                
+                                <!--#region Last message-->
+                                <Label
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    FontSize="8"
+                                    >
+                                    It's great)
+                                </Label>
+                                <!--#endregion-->
+                                
+                                <!--#region Time-->
+                                <Label
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    FontSize="8"
+                                    >
+                                    11:30
+                                </Label>
+                                <!--#endregion-->
+
+                                <!--#region Count of message-->
+                                <Border
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    Margin="5"
+                                    CornerRadius="50"
+                                    Height="15"
+                                    Width="15"
+                                    Background="Blue">
+
+                                    <TextBlock
+                                        Foreground="White"
+                                        Padding="5,0.5"
+                                        FontSize="10">
+                                        2
+                                    </TextBlock>
+                                    
+                                </Border>
+                                <!--#endregion-->
+                                
+                            </Grid>
+                            
+
+                        </DockPanel>
+                        
+                    </Border>                  
+                    <!--#endregion-->
+                    
+                    <!--#region Person-->
+                    <Border
+                        Margin="5"
+                        Height="60"
+                        CornerRadius="10" 
+                        Background="#FFE6E6E6" Cursor="Hand"
+                        >
+                        <DockPanel LastChildFill="True" >
+                            
+                            <!--#region Profile picture-->
+                            <Image
+                                DockPanel.Dock="Left"
+                                Margin="7"
+                                Source="/Icons/Chats/profile-user.png"
+                                >
+                            </Image>
+                            <!--#endregion-->
+
+                            <Grid
+                                Margin="5"
+                                >
+
+                                <!--#region Rows and columns-->
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition Width="30"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <!--#endregion-->
+                                
+                                <!--#region Person's fullname-->
+                                <Label
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    FontSize="9"
+                                    FontWeight="Medium"
+                                    >
+                                    Shaiq Kazimov
+                                </Label>
+                                <!--#endregion-->
+                                
+                                <!--#region Last message-->
+                                <Label
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    FontSize="8"
+                                    >
+                                    How are you?
+                                </Label>
+                                <!--#endregion-->
+                                
+                                <!--#region Time-->
+                                <Label
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    FontSize="8"
+                                    >
+                                    11:00
+                                </Label>
+                                <!--#endregion-->
+
+                                <!--#region Count of message-->
+                                <Border
+                                    Grid.Row="1"
+                                    Grid.Column="1"
+                                    Margin="5"
+                                    CornerRadius="50"
+                                    Height="15"
+                                    Width="15"
+                                    Background="Blue">
+
+                                    <TextBlock
+                                        Foreground="White"
+                                        Padding="5,0.5"
+                                        FontSize="10">
+                                        4
+                                    </TextBlock>
+                                    
+                                </Border>
+                                <!--#endregion-->
+                                
+                            </Grid>
+                            
+
+                        </DockPanel>
+                        
+                    </Border>                  
+                    <!--#endregion-->
+                    
+                    <!--#region Person-->
+                    <Border
+                        Margin="5"
+                        Height="60"
+                        CornerRadius="10" 
+                        Background="#FF2EA530" Cursor="Hand"
+                        >
+                        <DockPanel LastChildFill="True">
+                            
+                            <!--#region Profile picture-->
+                            <Image
+                                DockPanel.Dock="Left"
+                                Margin="7"
+                                Source="/Icons/Chats/profile-user.png"
+                                >
+                            </Image>
+                            <!--#endregion-->
+
+                            <Grid
+                                Margin="5"
+                                >
+
+                                <!--#region Rows and columns-->
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition Width="30"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <!--#endregion-->
+                                
+                                <!--#region Person's fullname-->
+                                <Label
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    FontSize="9"
+                                    FontWeight="Medium"
+                                    >
+                                    Huseyn Kerimov
+                                </Label>
+                                <!--#endregion-->
+                                
+                                <!--#region Last message-->
+                                <Label
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    FontSize="8"
+                                    >
+                                    Ders oxuyuram
+                                </Label>
+                                <!--#endregion-->
+                                
+                                <!--#region Time-->
+                                <Label
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    FontSize="8"
+                                    >
+                                    10:40
+                                </Label>
+                                <!--#endregion-->
+
+                                <!--#region Readed message-->
+                                <Image
+                                    Grid.Column="1"
+                                    Grid.Row="1"
+                                    Source="/Icons/Chats/check-mark.png"
+                                    >
+                                </Image>
+                                <!--#endregion-->
+                                
+                            </Grid>
+                            
+
+                        </DockPanel>
+                        
+                    </Border>                  
+                    <!--#endregion-->
+                    
+                    <!--#region Person-->
+                    <Border
+                        Margin="5"
+                        Height="60"
+                        CornerRadius="10" 
+                        Background="#FFE6E6E6" Cursor="Hand"
+                        >
+                        <DockPanel LastChildFill="True">
+                            
+                            <!--#region Profile picture-->
+                            <Image
+                                DockPanel.Dock="Left"
+                                Margin="7"
+                                Source="/Icons/Chats/profile-user.png"
+                                >
+                            </Image>
+                            <!--#endregion-->
+
+                            <Grid
+                                Margin="5"
+                                >
+
+                                <!--#region Rows and columns-->
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition Width="30"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <!--#endregion-->
+                                
+                                <!--#region Person's fullname-->
+                                <Label
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    FontSize="9"
+                                    FontWeight="Medium"
+                                    >
+                                    Senan Xudulu
+                                </Label>
+                                <!--#endregion-->
+                                
+                                <!--#region Last message-->
+                                <Label
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    FontSize="8"
+                                    >
+                                    Noutbuku gotur gel bize
+                                </Label>
+                                <!--#endregion-->
+                                
+                                <!--#region Time-->
+                                <Label
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    FontSize="8"
+                                    >
+                                    10:20
+                                </Label>
+                                <!--#endregion-->
+
+                                <!--#region Count of message-->
+                                
+                                <!--#endregion-->
+                                
+                            </Grid>
+                            
+
+                        </DockPanel>
+                        
+                    </Border>                  
+                    <!--#endregion-->
+                    
+                    <!--#region Person-->
+                    <Border
+                        Margin="5"
+                        Height="60"
+                        CornerRadius="10" 
+                        Background="#FFE6E6E6" Cursor="Hand"
+                        >
+                        <DockPanel LastChildFill="True">
+                            
+                            <!--#region Profile picture-->
+                            <Image
+                                DockPanel.Dock="Left"
+                                Margin="7"
+                                Source="/Icons/Chats/profile-user.png"
+                                >
+                            </Image>
+                            <!--#endregion-->
+
+                            <Grid
+                                Margin="5"
+                                >
+
+                                <!--#region Rows and columns-->
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition Width="30"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <!--#endregion-->
+                                
+                                <!--#region Person's fullname-->
+                                <Label
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    FontSize="9"
+                                    FontWeight="Medium"
+                                    >
+                                    Adil Elizade
+                                </Label>
+                                <!--#endregion-->
+                                
+                                <!--#region Last message-->
+                                <Label
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    FontSize="8"
+                                    >
+                                    Cixmiram cole!
+                                </Label>
+                                <!--#endregion-->
+                                
+                                <!--#region Time-->
+                                <Label
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    FontSize="8"
+                                    >
+                                    10:00
+                                </Label>
+                                <!--#endregion-->
+
+                                <!--#region Readed message-->
+                                <Image
+                                    Grid.Column="1"
+                                    Grid.Row="1"
+                                    Source="/Icons/Chats/check-mark.png"
+                                    >
+                                </Image>
+                                <!--#endregion-->
+                                
+                            </Grid>
+
+                        </DockPanel>
+                        
+                    </Border>                  
+                    <!--#endregion-->
+                    
+                    <!--#region Person-->
+                    <Border
+                        Margin="5"
+                        Height="60"
+                        CornerRadius="10" 
+                        Background="#FFE6E6E6" Cursor="Hand"
+                        >
+                        <DockPanel LastChildFill="True">
+                            
+                            <!--#region Profile picture-->
+                            <Image
+                                DockPanel.Dock="Left"
+                                Margin="7"
+                                Source="/Icons/Chats/profile-user.png"
+                                >
+                            </Image>
+                            <!--#endregion-->
+
+                            <Grid
+                                Margin="5"
+                                >
+
+                                <!--#region Rows and columns-->
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition Width="30"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <!--#endregion-->
+                                
+                                <!--#region Person's fullname-->
+                                <Label
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    FontSize="9"
+                                    FontWeight="Medium"
+                                    >
+                                    Ilkin Aslanov
+                                </Label>
+                                <!--#endregion-->
+                                
+                                <!--#region Last message-->
+                                <Label
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    FontSize="8"
+                                    >
+                                    Saba gorusheriy.
+                                </Label>
+                                <!--#endregion-->
+                                
+                                <!--#region Time-->
+                                <Label
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    FontSize="8"
+                                    >
+                                    )9:18
+                                </Label>
+                                <!--#endregion-->
+
+                                <!--#region Count of message-->
+                                
+                                <!--#endregion-->
+                                
+                            </Grid>
+                            
+
+                        </DockPanel>
+                        
+                    </Border>                  
+                    <!--#endregion-->
+                    
+                    <!--#region Person-->
+                    <Border
+                        Margin="5"
+                        Height="60"
+                        CornerRadius="10" 
+                        Background="#FFE6E6E6" Cursor="Hand"
+                        >
+                        <DockPanel LastChildFill="True">
+                            
+                            <!--#region Profile picture-->
+                            <Image
+                                DockPanel.Dock="Left"
+                                Margin="7"
+                                Source="/Icons/Chats/profile-user.png"
+                                >
+                            </Image>
+                            <!--#endregion-->
+
+                            <Grid
+                                Margin="5"
+                                >
+
+                                <!--#region Rows and columns-->
+                                <Grid.RowDefinitions>
+                                    <RowDefinition></RowDefinition>
+                                    <RowDefinition></RowDefinition>
+                                </Grid.RowDefinitions>
+
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition></ColumnDefinition>
+                                    <ColumnDefinition Width="30"></ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <!--#endregion-->
+                                
+                                <!--#region Person's fullname-->
+                                <Label
+                                    Grid.Row="0"
+                                    Grid.Column="0"
+                                    FontSize="9"
+                                    FontWeight="Medium"
+                                    >
+                                    Ulviyye Nuiyeva
+                                </Label>
+                                <!--#endregion-->
+                                
+                                <!--#region Last message-->
+                                <Label
+                                    Grid.Row="1"
+                                    Grid.Column="0"
+                                    FontSize="8"
+                                    >
+                                    Bu gun ishim coxdu
+                                </Label>
+                                <!--#endregion-->
+                                
+                                <!--#region Time-->
+                                <Label
+                                    Grid.Row="0"
+                                    Grid.Column="1"
+                                    FontSize="8"
+                                    >
+                                    08:54
+                                </Label>
+                                <!--#endregion-->
+
+                                <!--#region Readed message-->
+                                <Image
+                                    Grid.Column="1"
+                                    Grid.Row="1"
+                                    Source="/Icons/Chats/check-mark.png"
+                                    >
+                                </Image>
+                                <!--#endregion-->
+
+                            </Grid>
+
+                        </DockPanel>
+                        
+                    </Border>                  
+                    <!--#endregion-->
+                    
+                </StackPanel>
+                
+            </ScrollViewer>
+            <!--#endregion-->
+            
+        </DockPanel>
+        <!--#endregion-->
+        
+        <!--#region Message-->
+        <DockPanel
+            LastChildFill="True"
+            Margin="5"
+            Background="Transparent"
+            >
+            
+            <!--#region Person's fullname-->
+            <DockPanel
+                LastChildFill="True"
+                DockPanel.Dock="Top"
+                Margin="5"
+                Height="40"
+                >
+                
+                <!--#region Profile picture-->
+                <Image
+                    DockPanel.Dock="Left"
+                    Source="/Icons/Chats/profile-user.png"
+                    >
+                </Image>
+                <!--#endregion-->
+
+                <Grid>
+
+                    <!--#region Columns-->
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition></ColumnDefinition>
+                        <ColumnDefinition Width="50"></ColumnDefinition>
+                        <ColumnDefinition Width="50"></ColumnDefinition>
+                        <ColumnDefinition Width="50"></ColumnDefinition>
+                    </Grid.ColumnDefinitions>
+                    <!--#endregion-->
+
+                    <!--#region Person's fullname-->
+                    <TextBlock
+                        Grid.Column="0"
+                        Margin="10"
+                        VerticalAlignment="Center"
+                        FontSize="18"
+                        FontWeight="Bold"
+                        >
+                        Huseyn Kerimov
+                    </TextBlock>
+                    <!--#endregion-->
+
+                    <!--#region Buttons-->
+                    
+                    <!--#region Web browser-->
+                    <Grid
+                        Grid.Column="1" Cursor="Hand"
+                        >
+                        <Image
+                                Margin="10"
+                                Source="/Icons/Message/web-browser.png"
+                                >
+                        </Image>
+                        <Button
+                            Opacity="0"
+                            >
+                            
+                        </Button>
+                    </Grid>
+                    <!--#endregion-->
+                    
+                    <!--#region Search-->
+                    <Grid
+                        Grid.Column="2" Cursor="Hand"
+                        >
+                        <Image
+                            Margin="10"
+                            Source="/Icons/Message/search.png"
+                            >
+                        </Image>
+                        <Button
+                            Opacity="0"
+                            >
+                        </Button>
+                    </Grid>
+                    <!--#endregion-->
+
+                    <!--#region Menu-->
+                    <Grid
+                        Grid.Column="3" Cursor="Hand"
+                        >
+                        <Image
+                            Margin="8"
+                            Source="/Icons/Message/categories.png" >
+                        </Image>
+                        <Button
+                            Opacity="0"
+                            >
+                        </Button>
+                    </Grid>
+                    <!--#endregion-->
+
+
+                    <!--#endregion-->
+
+                </Grid>
+
+            </DockPanel>
+            <!--#endregion-->
+
+            <!--#region Messages-->
+            <Border
+                Background="#FFE6E6E6"
+                CornerRadius="20"
+                >
+                <DockPanel
+                    LastChildFill="True"
+                    Background="Transparent"
+                    >
+                    
+                    <!--#region Write new message-->
+                    <DockPanel
+                        DockPanel.Dock="Bottom"
+                        VerticalAlignment="Bottom"
+                        Height="30"
+                        Margin="20"
+                        >
+                        <Grid>
+                            
+                            <!--#region Columns-->
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition></ColumnDefinition>
+                                <ColumnDefinition Width="50"></ColumnDefinition>
+                            </Grid.ColumnDefinitions>
+                            <!--#endregion-->
+
+                            <!--#region Text for message-->
+                            <Border
+                                Grid.Column="0"
+                                CornerRadius="20"
+                                Background="White"
+                                >
+                                <TextBox
+                                    Background="Transparent"
+                                    BorderBrush="Transparent"
+                                    BorderThickness="0"
+                                    Margin="10,5"
+                                    >
+                                    Write a new message...
+                                </TextBox>
+                            </Border>
+                            <!--#endregion-->
+                            
+                            <!--#region Button of sended message-->
+
+                            <Grid 
+                                Grid.Column="1" Cursor="Hand">
+                                <Image
+                                        
+                                    Margin="5"
+                                    Source="/Icons/Message/send-message.png" 
+                                    >
+                                </Image>
+                                <Button Opacity="0"></Button>
+                            </Grid>
+                            <!--#endregion-->
+                            
+                        </Grid>
+                        
+                    </DockPanel>
+                    <!--#endregion-->
+                    
+                    <!--#region All messages-->
+                    <ScrollViewer
+                        VerticalScrollBarVisibility="Auto"
+                        >
+                        <StackPanel>
+                            
+                            <!--#region My contact's message-->
+                            <Border
+                                Background="White"
+                                HorizontalAlignment="Left"
+                                CornerRadius="20,20,20,0"
+                                Height="45"
+                                Width="120"
+                                Margin="10"
+                                >
+                                
+                                <!--#region Components of message-->
+                                <Grid>
+                                    
+                                    <!--#region Rows-->
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="2*"></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <!--#endregion-->
+                                    
+                                    <!--#region Text of message-->
+                                    <TextBlock
+                                        Grid.Row="0"
+                                        Margin="10,7,0,0">
+                                        Salam aleykum
+                                    </TextBlock>
+                                    <!--#endregion-->
+                                    
+                                    <!--#region Time-->
+                                    <TextBlock
+                                        Grid.Row="1"
+                                        Margin="0,0,15,0"
+                                        HorizontalAlignment="Right"
+                                        FontSize="9"
+                                        >
+                                        22:00
+                                    </TextBlock>
+                                    <!--#endregion-->
+                                    
+                                </Grid>
+                                <!--#endregion-->
+
+                            </Border>
+                            <!--#endregion-->
+                            
+                            <!--#region My message-->
+                            <Border
+                                Background="#FF2EA530"
+                                HorizontalAlignment="Right"
+                                CornerRadius="20,20,0,20"
+                                Height="45"
+                                Width="120"
+                                Margin="10"
+                                >
+                                
+                                <!--#region Components of message-->
+                                <Grid>
+                                    
+                                    <!--#region Rows-->
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="2*"></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <!--#endregion-->
+                                    
+                                    <!--#region Text of message-->
+                                    <TextBlock
+                                        Grid.Row="0"
+                                        Margin="15,5,0,0">
+                                        Aleykum salam
+                                    </TextBlock>
+                                    <!--#endregion-->
+
+                                    <DockPanel 
+                                        Grid.Row="1"
+                                        >
+                                        
+                                        <!--#region Readed icon-->
+                                        <Image
+                                            DockPanel.Dock="Right"
+                                            Margin="0,0,15,0"
+                                            Source="/Icons/Chats/check-mark.png" 
+                                            />
+                                        <!--#endregion-->
+
+                                        <!--#region Time-->
+                                        <TextBlock
+                                            Margin="2"
+                                            HorizontalAlignment="Right"
+                                            FontSize="9"
+                                            >
+                                            22:10
+                                        </TextBlock>
+                                        <!--#endregion-->
+                                        
+                                    </DockPanel>
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                    
+                                </Grid>
+                                <!--#endregion-->
+
+                            </Border>
+                            <!--#endregion-->
+
+                            <!--#region My contact's message-->
+                            <Border
+                                Background="White"
+                                HorizontalAlignment="Left"
+                                CornerRadius="20,20,20,0"
+                                Height="45"
+                                Width="120"
+                                Margin="10"
+                                >
+
+                                <!--#region Components of message-->
+                                <Grid>
+
+                                    <!--#region Rows-->
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="2*"></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <!--#endregion-->
+
+                                    <!--#region Text of message-->
+                                    <TextBlock
+                                        Grid.Row="0"
+                                        Margin="10,7,0,0">
+                                        Necesen?
+                                    </TextBlock>
+                                    <!--#endregion-->
+
+                                    <!--#region Time-->
+                                    <TextBlock
+                                        Grid.Row="1"
+                                        Margin="0,0,15,0"
+                                        HorizontalAlignment="Right"
+                                        FontSize="9"
+                                        >
+                                        22:15
+                                    </TextBlock>
+                                    <!--#endregion-->
+
+                                </Grid>
+                                <!--#endregion-->
+
+                            </Border>
+                            <!--#endregion-->
+
+                            <!--#region My message-->
+                            <Border
+                                Background="#FF2EA530"
+                                HorizontalAlignment="Right"
+                                CornerRadius="20,20,0,20"
+                                Height="45"
+                                Width="120"
+                                Margin="10"
+                                >
+
+                                <!--#region Components of message-->
+                                <Grid>
+
+                                    <!--#region Rows-->
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="2*"></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <!--#endregion-->
+
+                                    <!--#region Text of message-->
+                                    <TextBlock
+                                        Grid.Row="0"
+                                        Margin="15,5,0,0">
+                                        Yaxshiyam
+                                    </TextBlock>
+                                    <!--#endregion-->
+
+                                    <DockPanel 
+                                        Grid.Row="1"
+                                        >
+
+                                        <!--#region Readed icon-->
+                                        <Image
+                                            DockPanel.Dock="Right"
+                                            Margin="0,0,15,0"
+                                            Source="/Icons/Chats/check-mark.png" 
+                                            />
+                                        <!--#endregion-->
+
+                                        <!--#region Time-->
+                                        <TextBlock
+                                            Margin="2"
+                                            HorizontalAlignment="Right"
+                                            FontSize="9"
+                                            >
+                                            22:20
+                                        </TextBlock>
+                                        <!--#endregion-->
+
+                                    </DockPanel>
+
+
+
+
+
+
+
+                                </Grid>
+                                <!--#endregion-->
+
+                            </Border>
+                            <!--#endregion-->
+
+                            <!--#region My contact's message-->
+                            <Border
+                                Background="White"
+                                HorizontalAlignment="Left"
+                                CornerRadius="20,20,20,0"
+                                Height="45"
+                                Width="120"
+                                Margin="10"
+                                >
+
+                                <!--#region Components of message-->
+                                <Grid>
+
+                                    <!--#region Rows-->
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="2*"></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <!--#endregion-->
+
+                                    <!--#region Text of message-->
+                                    <TextBlock
+                                        Grid.Row="0"
+                                        Margin="10,7,0,0">
+                                        Neyniyirsen?
+                                    </TextBlock>
+                                    <!--#endregion-->
+
+                                    <!--#region Time-->
+                                    <TextBlock
+                                        Grid.Row="1"
+                                        Margin="0,0,15,0"
+                                        HorizontalAlignment="Right"
+                                        FontSize="9"
+                                        >
+                                        22:25
+                                    </TextBlock>
+                                    <!--#endregion-->
+
+                                </Grid>
+                                <!--#endregion-->
+
+                            </Border>
+                            <!--#endregion-->
+
+                            <!--#region My message-->
+                            <Border
+                                Background="#FF2EA530"
+                                HorizontalAlignment="Right"
+                                CornerRadius="20,20,0,20"
+                                Height="45"
+                                Width="120"
+                                Margin="10"
+                                >
+
+                                <!--#region Components of message-->
+                                <Grid>
+
+                                    <!--#region Rows-->
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="2*"></RowDefinition>
+                                        <RowDefinition></RowDefinition>
+                                    </Grid.RowDefinitions>
+                                    <!--#endregion-->
+
+                                    <!--#region Text of message-->
+                                    <TextBlock
+                                        Grid.Row="0"
+                                        Margin="15,5,0,0">
+                                        Ders oxuyuram
+                                    </TextBlock>
+                                    <!--#endregion-->
+
+                                    <DockPanel 
+                                        Grid.Row="1"
+                                        >
+
+                                        <!--#region Readed icon-->
+                                        <Image
+                                            DockPanel.Dock="Right"
+                                            Margin="0,0,15,0"
+                                            Source="/Icons/Chats/check-mark.png" 
+                                            />
+                                        <!--#endregion-->
+
+                                        <!--#region Time-->
+                                        <TextBlock
+                                            Margin="2"
+                                            HorizontalAlignment="Right"
+                                            FontSize="9"
+                                            >
+                                            22:30
+                                        </TextBlock>
+                                        <!--#endregion-->
+
+                                    </DockPanel>
+
+
+
+
+
+
+
+                                </Grid>
+                                <!--#endregion-->
+
+                            </Border>
+                            <!--#endregion-->
+
+                        </StackPanel>
+                        
+                    </ScrollViewer>
+                    <!--#endregion-->
+                    
+                    
+                    
+                </DockPanel>
+            </Border>
+            <!--#endregion-->
+            
+        </DockPanel>
+        <!--#endregion-->
+
+    </DockPanel>
+</Window>
